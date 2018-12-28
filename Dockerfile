@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 
 # Install apache, PHP 7, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 
@@ -36,14 +36,14 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 # Copy this repo into place.
 VOLUME ["/var/www", "/etc/apache2/sites-enabled"]
 
+# Expose apache.
+EXPOSE 80
+
 # Copy site into place.
 ADD app /var/www/site/app
 
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
-
-# Expose apache.
-EXPOSE 80
 
 # By default start up apache in the foreground, override with /bin/bash for interative.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
