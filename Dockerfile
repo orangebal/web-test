@@ -3,6 +3,7 @@ FROM ubuntu:16.04
  
 # Update Software repository
 RUN apt-get update
+RUN apt-utils
  
 # Install nginx, php-fpm and supervisord from ubuntu repository
 RUN apt-get install -y nginx php7.0-fpm supervisor && \
