@@ -2,7 +2,6 @@ FROM ubuntu:latest
 
 # Install apache, PHP 7, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 
-RUN apt-add-repository ppa:ondrej/php
 RUN apt-get update && \
 apt-get -y upgrade && \
 apt-get -y install \
