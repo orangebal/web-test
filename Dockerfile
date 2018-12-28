@@ -3,7 +3,7 @@ FROM ubuntu:16.04
  
 # Update Software repository
 RUN apt-get update
-RUN apt-utils
+
  
 # Install nginx, php-fpm and supervisord from ubuntu repository
 RUN apt-get install -y nginx php7.0-fpm supervisor && \
@@ -13,7 +13,7 @@ RUN apt-get install -y nginx php7.0-fpm supervisor && \
 ENV nginx_vhost /etc/nginx/sites-available/default
 ENV php_conf /etc/php/7.0/fpm/php.ini
 ENV nginx_conf /etc/nginx/nginx.conf
-ENV supervisor_conf /etc/supervisor/supervisord.conf
+# ENV supervisor_conf /etc/supervisor/supervisord.conf
  
 # Enable php-fpm on nginx virtualhost configuration
 COPY default ${nginx_vhost}
